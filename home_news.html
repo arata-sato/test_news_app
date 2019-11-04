@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, viewport-fit=cover">
+    <title>app</title>
+    <!--
+    在移动端为了让页面和设备快速的匹配，我们通过设定页面的viewport来处理不同屏幕分辨率的兼容
+    -->
+    <link href="assets/style/vant.css" rel="stylesheet" type="text/css">
+    <script src="lib/vue.min.js"></script>
+    <script src="lib/vant.min.js"></script>
+    <!--    <script src="compontents/mytabbar.js"></script>-->
+    <script src="https://unpkg.com/vue-lazyload/vue-lazyload.js"></script>
+</head>
+
+<body>
+<div id="app">
+    <van-nav-bar
+            title="我的新闻app"
+    ></van-nav-bar>
+    <van-swipe :autoplay="3000" indicator-color="white" width="320" height="100">
+        <van-swipe-item><img src="https://i.loli.net/2019/11/02/bQXBhRGo5VmI7Wy.gif" alt=""></van-swipe-item>
+        <van-swipe-item><img src="https://i.loli.net/2019/11/02/mA76fTMXqa5riIE.jpg" alt=""></van-swipe-item>
+        <van-swipe-item><img src="https://i.loli.net/2019/11/02/AaE1lvDgk7YhmKq.jpg" alt=""></van-swipe-item>
+        <van-swipe-item><img src="https://i.loli.net/2019/11/02/9vT2skL6Hd3OYAN.png" alt=""></van-swipe-item>
+    </van-swipe>
+    <!--    https://i.loli.net/2019/11/02/bQXBhRGo5VmI7Wy.gif-->
+    <!--    https://i.loli.net/2019/11/02/mA76fTMXqa5riIE.jpg-->
+    <!--    https://i.loli.net/2019/11/02/AaE1lvDgk7YhmKq.jpg-->
+    <!--    https://i.loli.net/2019/11/02/9vT2skL6Hd3OYAN.png-->
+    <van-tabs v-model="active">
+        <van-tab title="首页" url="http://localhost:13129/WebstormProjects/pro3/home_page.html"></van-tab>
+        <van-tab title="国内"></van-tab>
+        <van-tab title="国际" url="http://localhost:13129/WebstormProjects/pro3/international_news.html"></van-tab>
+    </van-tabs>
+    <van-notice-bar wrapable :scrollable="false" background="white" color="black"
+                    left-icon="https://i.loli.net/2019/11/03/zZybjr87BkmdT1A.gif"  v-on:click="goBack">
+        车祸死者家属拉横幅阻交通 广东警方传唤34人调查
+    </van-notice-bar><van-divider></van-divider>
+    <van-notice-bar wrapable :scrollable="false" background="white" color="black"
+                    left-icon="https://i.loli.net/2019/11/03/zZybjr87BkmdT1A.gif">
+        香港一“媒体人”发文替黄之锋叫屈 网友：选择性失明
+    </van-notice-bar><van-divider></van-divider>
+    <van-notice-bar wrapable :scrollable="false" background="white" color="black"
+                    left-icon="https://i.loli.net/2019/11/03/zZybjr87BkmdT1A.gif">
+        中小学生教师资格考试今举行590万考生规模创新高
+    </van-notice-bar><van-divider></van-divider>
+    <!--    <van-skeleton title avatar :row="2"/>-->
+    <!--    <mytabbar :active="0"></mytabbar>-->
+</div>
+<script>
+    let app = new Vue({
+        el: "#app",
+        data: {
+            active: 1,
+        },
+        methods: {
+            goBack: function (event) {
+                window.location.href = 'news_content.html';
+            }
+        },
+    });
+
+</script>
+</body>
+</html>
